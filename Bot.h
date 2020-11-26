@@ -60,14 +60,15 @@ int Bot::calc_V_score(int column) {
 int Bot::calc_H_score(int row) {
   // horizontal search
   // finds the matches in a specific row
+
   int counter = 1;
   int score = 0;
   int last = 11;
+
   for (int x = 0; y < 10; y++) {
     if (last == map[idx][x]) {
       counter++;
-    }
-    else {
+    } else {
       if (counter > 2 && last != 0) {
         score += counter;
       }
@@ -75,6 +76,7 @@ int Bot::calc_H_score(int row) {
       counter = 1;
     }
   }
+
   return score;
 }
 int Bot::update_map(x1, x2, y1, y2) {
@@ -94,6 +96,7 @@ void Bot::find_legal_moves() {
   for (int x = 0; x < 10; x++) {
     for (int y =0; y < 10, y++) {
       // test horizontal move
+
       if (x < 10) {
 
         x1 = x;
@@ -105,6 +108,7 @@ void Bot::find_legal_moves() {
         }
       }
       // test vertical move
+
       if (y < 10) {
         x1 = x;
         x2 = x;
@@ -127,32 +131,26 @@ void Bot:: get_checking_indices(int x1, int x2, int y1, int y2) {
   // | 1 | 1 | B | 1 | 1 |
   // | 0 | 0 | 1 | 0 | 0 |
   // | 0 | 0 | 1 | 0 | 0 |
-  int x_start;
-  int x_end;
-  int y_start;
-  int y_end;
+  int x_start = 0;
+  int x_end = 9;
+  int y_start = 0;
+  int y_end = 9;
 
 
   if (x1 > 2) {
     x_start = x1 - 2;
   }
-  else {
-    x_start = 0;
-  }
+
   if (x2 < 7) {
     x_end = x2 + 2;
   }
-  else {
-    x_end = 9;
-  }
+
   if (y1 > 2) {
     y_start = y1 - 2;
   }
+
   if (y2 < 7) {
     y_end = y2 + 2;
-  }
-  else {
-    y_end = 9;
   }
 
   return x_start, x_end, y_start, y_end;
@@ -169,6 +167,7 @@ void Bot::check_legal_V_move() {
   // | 0 | 0 | 1 | 0 | 0 |
   // | 0 | 0 | 1 | 0 | 0 |
   //           v1
+
   int last_h1 = 0;
   int counter_h1 = 1;
   int last_h2 = 0;
@@ -178,21 +177,26 @@ void Bot::check_legal_V_move() {
   // horizontal checks
   for (int x = x_start, x < x_end, x++) {
     // h1
+
     if (last_h1 == map[y1][x]) {
       counter_h1++;
-    }
-    else {
+
+    } else {
+
       if (counter_h1 > 2 && last_h1 != 0) {
         score += counter_h1;
       }
+
       last_h1 = map[y1][x];
       counter_h1 = 1;
     }
+
     // h2
     if (last_h2 == map[y2][x]) {
       counter_h2++;
-    }
-    else {
+
+    } else {
+
       if (counter_h2 > 2 && last_h2 != 0) {
         score += counter_h2;
       }
