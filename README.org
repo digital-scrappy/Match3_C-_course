@@ -1,0 +1,26 @@
+#+title: A Cpp bot developed by me
+* steps
+** Create board class
+*** evaluate which stones would break for a map
+*** find possible moves
+*** score map
+*** calculate breaking
+
+** make crosses work
+** use forward list for the map
+** optimize checking for breaking c
+*** seperate optimized search for legal moves
+*** only check the areas for matches that need to be checke
+*** optimize checking for the legal move search
+only check in the tiles that could have changed
+*** optimize for the further checks during breaking
+only check in the tiles that could have changed
+
+** If basically the whole tree could be searched in a minute then the latter tasks are not really usefull
+** ml approach using a library
+
+
+** wackygrad
+Possibly a city in russia
+also a a wacky library for gradient descent in C++
+maybe move this to a learn rust project could be nice
