@@ -7,8 +7,10 @@
 *** calculate breaking
 
 ** make crosses work
+research the game engine behavior
 ** use forward list for the map
-** optimize checking for breaking c
+check the speed gain
+** optimize checking for breaking
 *** seperate optimized search for legal moves
 *** only check the areas for matches that need to be checke
 *** optimize checking for the legal move search
