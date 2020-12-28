@@ -25,4 +25,4 @@ only check in the tiles that could have changed
 ** wackygrad
 Possibly a city in russia
 also a a wacky library for gradient descent in C++
-maybe move this to a learn rust project could be nice
+maybe move this to a learn rust project could be niceness
