@@ -1,11 +1,11 @@
 #+title: A Cpp bot developed by me
 * steps
 ** Create board class
-*** evaluate which stones would break for a map
+*** DONE evaluate which stones would break for a map
+*** DONE calculate breaking
+*** DONE score map
 *** find possible moves
-*** score map
-*** calculate breaking
-
+right now every board gets initalized in the data structure and then the ones with key 0 will be dropped
 ** make crosses work
 research the game engine behavior
 ** use forward list for the map
@@ -18,11 +18,41 @@ only check in the tiles that could have changed
 *** optimize for the further checks during breaking
 only check in the tiles that could have changed
 
-** If basically the whole tree could be searched in a minute then the latter tasks are not really usefull
-** ml approach using a library
+* The Board Class
+** find legal moves
+make it skip if there is a zero in the one of the tiles
+** Map-state
+stored for now in a 10x10 arrary possibly stored in a forward list in the future
+** Subboards
+  stored in a multimap the keys are the scores of the Board and the values are Board objects
+** multiplier
+this is just the current breaking iteration
+** Properties of a subboard state
 
+*** moves to current state
+- The moves it took to get to that current state
+*** Score of the state
+- The score of the subboard state
 
-** wackygrad
-Possibly a city in russia
-also a a wacky library for gradient descent in C++
-maybe move this to a learn rust project could be niceness
+* Performance Improvement
+** not testing moves for legality if they hold two empty stones
+
+before 72s
+after 66s
+if the check gets skipped also if one of them is empty the time goes down to
+62s
+** using 8 bit integers for the map
+before
+62s
+after
+63s
+64s
+helped nothing
+** only inserting moves if they score above 3 points
+this could be problematic since I might end up with no moves but provides a huge speed gain
+24s
+added a flag that gurantees 3 point moves being put in the first layer of the tree
+only subsequent layers will ignore 3 point moves
+39s
+** drop the lower half of the  possible moves by score
+7s
