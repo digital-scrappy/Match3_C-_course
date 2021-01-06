@@ -1,4 +1,4 @@
-#+title: A Cpp bot developed by me
+#+title: A Cpp bot
 * steps
 ** Create board class
 *** DONE evaluate which stones would break for a map
@@ -56,3 +56,5 @@ only subsequent layers will ignore 3 point moves
 39s
 ** drop the lower half of the  possible moves by score
 7s
+** adding the -O3 flag for clang++
+1s
