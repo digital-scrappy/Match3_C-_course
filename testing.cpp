@@ -3,51 +3,32 @@
 
 using namespace std;
 
-int map[10][10]= {
-  {1,1,2,3,3,2,4,4,1,1},
-  {2,2,3,4,1,3,3,4,1,2},
-  {1,2,2,4,3,3,4,1,2,1},
-  {3,4,2,1,3,2,3,2,3,2},
-  {1,1,3,3,1,4,2,4,1,1},
-  {1,1,2,1,1,1,4,2,3,1},
-  {2,2,3,4,1,3,3,4,1,2},
-  {1,2,2,4,3,3,4,1,2,1},
-  {3,4,2,1,1,2,3,2,3,2},
-  {1,1,3,3,4,3,2,4,1,1},
+int map[10][10] = {
+    {1, 1, 2, 3, 3, 2, 4, 4, 1, 1}, {2, 2, 3, 4, 1, 3, 3, 4, 1, 2},
+    {1, 2, 2, 4, 3, 3, 4, 1, 2, 1}, {3, 4, 2, 1, 3, 2, 3, 2, 3, 2},
+    {1, 1, 3, 3, 1, 4, 2, 4, 1, 1}, {1, 1, 2, 1, 1, 1, 4, 2, 3, 1},
+    {2, 2, 3, 4, 1, 3, 3, 4, 1, 2}, {1, 2, 2, 4, 3, 3, 4, 1, 2, 1},
+    {3, 4, 2, 1, 1, 2, 3, 2, 3, 2}, {1, 1, 3, 3, 4, 3, 2, 4, 1, 1},
 };
-int map_copy[10][10]= {
-  {1,1,2,3,3,2,4,4,1,1},
-  {2,2,3,4,1,3,3,4,1,2},
-  {1,2,2,4,3,3,4,1,2,1},
-  {3,4,2,1,1,2,3,2,3,2},
-  {1,1,3,3,4,3,2,4,1,1},
-  {1,1,2,3,3,2,4,2,3,1},
-  {2,2,3,4,1,3,3,4,1,2},
-  {1,2,2,4,3,3,4,1,2,1},
-  {3,4,2,1,1,2,3,2,3,2},
-  {1,1,3,3,4,3,2,4,1,1},
+int map_copy[10][10] = {
+    {1, 1, 2, 3, 3, 2, 4, 4, 1, 1}, {2, 2, 3, 4, 1, 3, 3, 4, 1, 2},
+    {1, 2, 2, 4, 3, 3, 4, 1, 2, 1}, {3, 4, 2, 1, 1, 2, 3, 2, 3, 2},
+    {1, 1, 3, 3, 4, 3, 2, 4, 1, 1}, {1, 1, 2, 3, 3, 2, 4, 2, 3, 1},
+    {2, 2, 3, 4, 1, 3, 3, 4, 1, 2}, {1, 2, 2, 4, 3, 3, 4, 1, 2, 1},
+    {3, 4, 2, 1, 1, 2, 3, 2, 3, 2}, {1, 1, 3, 3, 4, 3, 2, 4, 1, 1},
 };
 
-int future_map[10][10]= {
-  {1,1,2,3,3,2,4,4,1,1},
-  {2,2,3,4,1,3,3,4,1,2},
-  {1,2,2,4,3,3,4,1,2,1},
-  {3,4,2,1,1,2,3,2,3,2},
-  {1,1,3,3,4,3,2,4,1,1},
-  {1,1,2,3,3,2,4,4,1,1},
-  {2,2,3,4,1,3,3,4,1,2},
-  {1,2,2,4,3,3,4,1,2,1},
-  {3,4,2,1,1,2,3,2,3,2},
-  {1,1,3,3,4,3,2,4,1,1},
+int future_map[10][10] = {
+    {1, 1, 2, 3, 3, 2, 4, 4, 1, 1}, {2, 2, 3, 4, 1, 3, 3, 4, 1, 2},
+    {1, 2, 2, 4, 3, 3, 4, 1, 2, 1}, {3, 4, 2, 1, 1, 2, 3, 2, 3, 2},
+    {1, 1, 3, 3, 4, 3, 2, 4, 1, 1}, {1, 1, 2, 3, 3, 2, 4, 4, 1, 1},
+    {2, 2, 3, 4, 1, 3, 3, 4, 1, 2}, {1, 2, 2, 4, 3, 3, 4, 1, 2, 1},
+    {3, 4, 2, 1, 1, 2, 3, 2, 3, 2}, {1, 1, 3, 3, 4, 3, 2, 4, 1, 1},
 };
 
 // void board_eval() {
 //   score += find_matches();
 //   break_stone();
-
-
-
-
 
 // int find_matches_V(int column) {
 //   // vertical search
@@ -70,7 +51,6 @@ int future_map[10][10]= {
 //   }
 //   return score;
 // }
-
 
 // int find_matches_H(int row) {
 //   // horizontal search
@@ -104,28 +84,26 @@ int future_map[10][10]= {
 //   return score;
 // }
 
-
-
 void print_map() {
   int color_code = 0;
   string out_str;
 
-    for (int i = 0; i < 10; i++) {
-      for (int j = 0; j < 10; j++) {
+  for (int i = 0; i < 10; i++) {
+    for (int j = 0; j < 10; j++) {
 
-
-        cout <<"\033[1;" << to_string( 40 + map[i][j]) <<"m" << to_string(map[i][j]) <<  " \033[0m";
-      }
-    cout << endl;
+      cout << "\033[1;" << to_string(40 + map[i][j]) << "m"
+           << to_string(map[i][j]) << " \033[0m";
     }
+    cout << endl;
+  }
 }
 
 void print_line(int index) {
 
   for (int j = 0; j < 10; j++) {
 
-
-    cout <<"\033[1;" << to_string( 40 + map[index][j]) <<"m" << to_string(map[index][j]) <<  " \033[0m";
+    cout << "\033[1;" << to_string(40 + map[index][j]) << "m"
+         << to_string(map[index][j]) << " \033[0m";
   }
   cout << endl;
 }
@@ -183,13 +161,12 @@ void print_line(int index) {
 //   cout << count << endl;
 // }
 
-
 // get_affected_square(int changed[][]) {
-//   // since there cannot be breaks more than two blocks away from the the furthest break
-//   // in any direction it might make sense to only loop over that part of the matrix for calculating
+//   // since there cannot be breaks more than two blocks away from the the
+//   furthest break
+//   // in any direction it might make sense to only loop over that part of the
+//   matrix for calculating
 //   // further breaks
 // }
 
-int main() {
-  print_map();
-}
+int main() { print_map(); }

@@ -6,16 +6,11 @@
 using namespace std;
 
 int my_map[10][10] = {
-    {1, 1, 2, 3, 3, 2, 4, 4, 1, 1},
-    {2, 2, 3, 4, 1, 3, 3, 4, 1, 2},
-    {1, 2, 2, 4, 3, 3, 4, 1, 2, 1},
-    {3, 4, 2, 1, 3, 2, 3, 2, 3, 2},
-    {1, 1, 3, 3, 1, 4, 2, 3, 1, 1},
-    {1, 1, 2, 1, 1, 1, 4, 4, 3, 1},
-    {2, 2, 3, 4, 1, 3, 3, 4, 1, 2},
-    {1, 2, 2, 4, 3, 3, 4, 1, 2, 1},
-    {3, 4, 2, 1, 1, 2, 3, 2, 3, 2},
-    {1, 1, 3, 3, 4, 3, 2, 4, 1, 1},
+    {1, 1, 2, 3, 3, 2, 4, 4, 1, 1}, {2, 2, 3, 4, 1, 3, 3, 4, 1, 2},
+    {1, 2, 2, 4, 3, 3, 4, 1, 2, 1}, {3, 4, 2, 1, 3, 2, 3, 2, 3, 2},
+    {1, 1, 3, 3, 1, 4, 2, 3, 1, 1}, {1, 1, 2, 1, 1, 1, 4, 4, 3, 1},
+    {2, 2, 3, 4, 1, 3, 3, 4, 1, 2}, {1, 2, 2, 4, 3, 3, 4, 1, 2, 1},
+    {3, 4, 2, 1, 1, 2, 3, 2, 3, 2}, {1, 1, 3, 3, 4, 3, 2, 4, 1, 1},
 };
 
 class Board {
@@ -43,12 +38,11 @@ Board::Board(int init_map[10][10]) {
   }
 }
 
-
 void Board::break_board() {
   // have temp_row be a structure that gets pushed back all the time maybe with
   // some zeros at the end
   bool need_change = false;
-  deque <int> temp_row;
+  deque<int> temp_row;
   for (int x = 0; x < 10; x++) {
     for (int y = 0; y < 10; y++) {
 
@@ -56,7 +50,8 @@ void Board::break_board() {
         temp_row.push_back(map[y][x]);
       } else {
         temp_row.push_front(0);
-        need_change= true; }
+        need_change = true;
+      }
     }
     if (need_change) {
       for (int i = 0; i < 10; i++) {
@@ -114,7 +109,7 @@ int Board::find_matches_V(int column) {
     if (last == map[y][column]) {
       counter++;
     } else {
-      if (counter > 2 && last !=0) {
+      if (counter > 2 && last != 0) {
         score += counter;
         start = y - counter;
         end = y;
@@ -130,7 +125,6 @@ int Board::find_matches_V(int column) {
   return score;
 }
 
-
 void Board::print_board() {
   string color_code;
   string out_str;
@@ -143,7 +137,7 @@ void Board::print_board() {
       cout << "\033[1;" << color_code << "m" << out_str << " \033[0m";
     }
     cout << endl;
- }
+  }
 }
 
 bool Board::find_matches(int multiplier) {
